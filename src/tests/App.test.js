@@ -24,4 +24,9 @@ describe('1 - Test the Component <App.js /> ', () => {
     const routeFavorite = history.location.pathname;
     expect(routeFavorite).toBe('/favorites');
   });
+  test('1.4 - Test if the application is redirected to the Not Found page', () => {
+    const { getByText, history } = renderWithRouter(<App />);
+    history.push('/not-found');
+    expect(getByText('Page requested not found')).toBeInTheDocument();
+  });
 });
