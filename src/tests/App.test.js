@@ -11,4 +11,16 @@ describe('1 - Teste o Componente <App.js /> ', () => {
     const routeHome = history.location.pathname;
     expect(routeHome).toBe('/');
   });
+  test('shows the Pokédex when the route is `/about`', () => {
+    const { getByText, history } = renderWithRouter(<App />);
+    fireEvent.click(getByText('About'));
+    const routeHome = history.location.pathname;
+    expect(routeHome).toBe('/about');
+  });
+  test('shows the Pokédex when the route is `/favorites`', () => {
+    const { getByText, history } = renderWithRouter(<App />);
+    fireEvent.click(getByText('Favorite Pokémons'));
+    const routeHome = history.location.pathname;
+    expect(routeHome).toBe('/favorites');
+  });
 });
