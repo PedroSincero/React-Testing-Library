@@ -1,6 +1,6 @@
 import React from 'react';
 // import { MemoryRouter } from 'react-router-dom';
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import App from '../App';
 import renderWithRouter from './renderWithRouter';
 
@@ -12,7 +12,7 @@ describe('1 - Test the Component <App.js /> ', () => {
     expect(routeHome).toBe('/');
   });
   test('1.2 - shows the Pokédex when the route is `/about`', () => {
-    const { getByText, history, getByRole } = renderWithRouter(<App />);
+    const { getByText, history } = renderWithRouter(<App />);
     const linkAbout = getByText('About');
     fireEvent.click(linkAbout);
     const routeAbout = history.location.pathname;
