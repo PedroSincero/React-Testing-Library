@@ -25,4 +25,25 @@ describe('5 - Test the <Pokedex.js /> component', () => {
       fireEvent.click(button);
     });
   });
+  test('5.3 - Test if the Pokédex has the filter buttons.', () => {
+    const { getByRole, getByTestId, getAllByTestId } = renderWithRouter(<App />);
+
+    const allButton = getByRole('button', { name: 'All' });
+    expect(allButton).toBeInTheDocument();
+    fireEvent.click(allButton);
+
+    const types = ['Electric', 'Fire', 'Bug', 'Poison',
+      'Psychic', 'Normal', 'Dragon'];
+
+    types.forEach((tipo) => {
+      const buttonType = getByRole('button', { name: [tipo] });
+      expect(buttonType).toBeInTheDocument();
+      const typeText = getByTestId('pokemon-type');
+      const typeButton = getAllByTestId('pokemon-type-button');
+      const value = 7;
+      expect(typeButton).toHaveLength(value);
+      expect(typeText).toBeInTheDocument();
+      fireEvent.click(buttonType);
+    });
+  });
 });
