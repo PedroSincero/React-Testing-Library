@@ -15,7 +15,6 @@ describe('4 - Teste o componente <NotFound.js /> ', () => {
   });
 
   test('4.2 - Test if the page contains the following image of a Pokédex.', () => {
-    // const { getByRole } = renderWithRouter(<NotFound />);
     const { getByText, history, getByAltText } = renderWithRouter(<App />);
     history.push('/not-found');
     expect(getByText('Page requested not found')).toBeInTheDocument();
