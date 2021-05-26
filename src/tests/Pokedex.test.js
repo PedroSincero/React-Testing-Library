@@ -1,5 +1,4 @@
 import React from 'react';
-// import { MemoryRouter } from 'react-router-dom';
 import { fireEvent } from '@testing-library/react';
 import renderWithRouter from './renderWithRouter';
 import App from '../App';
@@ -32,11 +31,11 @@ describe('5 - Test the <Pokedex.js /> component', () => {
     expect(allButton).toBeInTheDocument();
     fireEvent.click(allButton);
 
-    const types = ['Electric', 'Fire', 'Bug', 'Poison',
+    const typesPokemon = ['Electric', 'Fire', 'Bug', 'Poison',
       'Psychic', 'Normal', 'Dragon'];
 
-    types.forEach((tipo) => {
-      const buttonType = getByRole('button', { name: [tipo] });
+    typesPokemon.forEach((typePokemon) => {
+      const buttonType = getByRole('button', { name: [typePokemon] });
       expect(buttonType).toBeInTheDocument();
       const typeText = getByTestId('pokemon-type');
       const typeButton = getAllByTestId('pokemon-type-button');
