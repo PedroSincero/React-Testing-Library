@@ -13,20 +13,16 @@ describe('5 - Test the <Pokedex.js /> component', () => {
     expect(getH2).toBeInTheDocument();
   });
   test('5.2 - Test if the next Pokémon is displayed by clicking the button', () => {
-    const { getByRole, getByTestId, getByText } = renderWithRouter(<App />);
-    const button = getByRole('button', { name: 'Próximo pokémon' });
-    const buttonAll = getByRole('button', { name: 'All' });
-    expect(getByText('Próximo pokémon')).toBeInTheDocument();
+    const { getByRole, getByText } = renderWithRouter(<App />);
 
-    const pokemons = ['Pikachu', 'Charmander', 'Caterpie', 'Ekans', 'Alakazam', 'Mew', 'Rapidash', 'Snorlax', 'Dragonair'];
+    const pokemons = ['Pikachu', 'Charmander', 'Caterpie',
+      'Ekans', 'Alakazam', 'Mew', 'Rapidash', 'Snorlax', 'Dragonair'];
 
     pokemons.forEach((pokemon) => {
-      const namePokemon = getByTestId('pokemon-name');
-      expect(namePokemon).toHaveTextContent(pokemon);
+      const button = getByRole('button', { name: 'Próximo pokémon' });
+      const namePokemon = getByText(pokemon);
+      expect(namePokemon).toBeInTheDocument();
       fireEvent.click(button);
     });
-
-    // const charmander = getByTestId('pokemon-name');
-    // expect(charmander).toHaveTextContent('Charmander');
   });
 });
