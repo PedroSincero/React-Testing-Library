@@ -7,7 +7,7 @@ import data from '../data';
 describe('7 - Test the <PokemonDetails.js /> component', () => {
   test('7.1 - Test the information of the Pokémon selected on the screen.', () => {
     const { getByText, getByRole } = renderWithRouter(<App />);
-    const moreDetails = getByText('More details');
+    const moreDetails = getByText(/More details/i);
     fireEvent.click(moreDetails);
     expect(moreDetails).not.toBeInTheDocument();
 
