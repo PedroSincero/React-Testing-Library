@@ -27,7 +27,7 @@ describe('6 - Test the <Pokemon.js /> component', () => {
     const { pathname } = history.location;
     expect(pathname).toBe('/pokemons/25');
   });
-  test('6.5 -  Test if there is a star icon on favorite Pokémon', () => {
+  test('6.3 -  Test if there is a star icon on favorite Pokémon', () => {
     const { getByText, getByAltText, getByRole } = renderWithRouter(<App />);
     fireEvent.click(getByText(/More details/i));
     fireEvent.click(getByRole('checkbox'));
