@@ -32,6 +32,7 @@ describe('7 - Test the <PokemonDetails.js /> component', () => {
     maps.forEach(({ map }, index) => {
       const imgMap = getAllByRole('img', { name: 'Pikachu location', src: map });
       expect(imgMap[index].src).toEqual(map);
+
       const value = 2;
       expect(imgMap).toHaveLength(value);
     });
